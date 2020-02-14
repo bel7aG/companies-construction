@@ -1,0 +1,12 @@
+@font-face {
+  font-family: "HWTArtz";
+  src: url("./../static/fonts/hwt-artz.woff2") format("woff2");
+}
+
+.tricky {
+  height: 100vh;
+}
+
+@import "base/base";
+
+@import "Layouts/main";

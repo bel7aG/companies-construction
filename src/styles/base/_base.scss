@@ -1,0 +1,131 @@
+a,
+a:active,
+a:visited,
+:link {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+
+  &::-moz-selection {
+    background: yellow;
+  }
+  &::selection {
+    background: yellow;
+  }
+
+  -webkit-touch-callout: none !important;
+  -webkit-user-select: none !important;
+  -khtml-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  font-size: 1.6rem !important;
+  font-family: HWTArtz, sans-serif !important;
+}
+
+* {
+  font-family: HWTArtz, sans-serif !important;
+}
+
+img {
+  border-style: none;
+}
+
+@media only screen and (max-width: 480px) {
+  html {
+    font-size: 100%;
+  }
+}
+
+button {
+  overflow: hidden;
+  background-color: transparent;
+  outline: none;
+  border: 0;
+}
+a,
+a:active,
+a:visited,
+:link {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+
+  font-size: 62.5% !important;
+  color: hsla(0, 0%, 0%, 0.8);
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  overflow: hidden;
+
+  margin: 0;
+  font-size: 1.6rem !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: normal;
+  word-wrap: break-word;
+  font-kerning: normal;
+}
+
+img {
+  border-style: none;
+}
+
+button {
+  cursor: pointer;
+  background-color: transparent;
+  outline: none;
+  border: 0;
+}
+
+input {
+  outline: none;
+  border: 0;
+}
+
+li {
+  list-style: none;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 200;
+}
