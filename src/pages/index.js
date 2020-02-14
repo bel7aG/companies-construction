@@ -1,13 +1,26 @@
-import React from "react"
-import SEO from "../components/seo"
-import { Header } from "components"
+import React from 'react'
+import { Router, Location } from '@reach/router'
+import { TransitionGroup, CSSTransition } from 'react-transition-group'
+import 'styles/index.scss'
+import { Header, SEO } from 'components'
+import Landing from './LandingPage'
 
-const IndexPage = () => (
+const AppRouter = () => (
   <div>
     <Header />
     <SEO title="Home" />
-    <h1>Hey</h1>
+    <Location>
+      {({ location }) => (
+        <TransitionGroup className="transition-group">
+          <CSSTransition key={location.key} classNames="fade" timeout={500}>
+            <Router location={location} className="router">
+              <Landing path="/" />
+            </Router>
+          </CSSTransition>
+        </TransitionGroup>
+      )}
+    </Location>
   </div>
 )
 
-export default IndexPage
+export default AppRouter

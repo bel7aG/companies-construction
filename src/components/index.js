@@ -1,3 +1,4 @@
-import Header from "./Header"
+import Header from './Header'
+import SEO from './SEO'
 
-export { Header }
+export { Header, SEO }
