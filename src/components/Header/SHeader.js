@@ -18,7 +18,31 @@ export const SHeader = styled.header`
   animation: ${HeaderIn} 0.46s 1s ease forwards;
 
   width: 100vw;
-  height: 6.9rem;
   background-color: #fff;
   border-bottom: 1px solid #ddd;
+
+  &,
+  > div {
+    height: 6.9rem;
+  }
+
+  > div {
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    > div {
+      &:first-child {
+        > a {
+          color: #2553b3;
+          font-size: 2.6rem !important;
+        }
+      }
+      > a,
+      > div > input {
+        letter-spacing: 2px;
+      }
+    }
+  }
 `

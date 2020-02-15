@@ -8,10 +8,12 @@ const Header = ({ children }) => {
   return (
     <SHeader>
       <div>
-        <Link to="/">Casuno</Link>
-      </div>
+        <div>
+          <Link to="/">Cosuno</Link>
+        </div>
 
-      <div>{children}</div>
+        <div>{children}</div>
+      </div>
     </SHeader>
   )
 }
