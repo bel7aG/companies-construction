@@ -5,4 +5,5 @@ import SEO from './SEO'
 import Scrollbar from './Scrollbar'
 import Cover from './Cover'
 
+export * from './SVG'
 export { Layout as default, SearchBar, Header, SEO, Scrollbar, Cover }
