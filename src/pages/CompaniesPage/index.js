@@ -74,11 +74,6 @@ const Companies = () => {
 
 const SCompanies = styled.div`
   color: red;
-
-  > div {
-    > div:first-child {
-    }
-  }
 `
 
 export default Companies

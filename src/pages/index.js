@@ -9,24 +9,28 @@ import NotFound from './NotFound'
 
 import 'styles/index.scss'
 
-const AppRouter = () => (
-  <div>
-    <Header />
-    <SEO title="Home" />
-    <Location>
-      {({ location }) => (
-        <TransitionGroup className="transition-group">
-          <CSSTransition key={location.key} classNames="fade" timeout={500}>
-            <Router location={location} className="router">
-              <Landing path="/" />
-              <Companies path="companies" />
-              <NotFound default />
-            </Router>
-          </CSSTransition>
-        </TransitionGroup>
-      )}
-    </Location>
-  </div>
-)
+const AppRouter = () => {
+  return (
+    <div>
+      <SEO title="Home" />
+      <Location>
+        {({ location }) => (
+          <TransitionGroup className="transition-group">
+            <CSSTransition key={location.key} classNames="fade" timeout={500}>
+              <>
+                {location.pathname !== '/' && <Header />}
+                <Router location={location} className="router">
+                  <Landing path="/" />
+                  <Companies path="companies" />
+                  <NotFound default />
+                </Router>
+              </>
+            </CSSTransition>
+          </TransitionGroup>
+        )}
+      </Location>
+    </div>
+  )
+}
 
 export default AppRouter
