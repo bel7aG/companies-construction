@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 import Layout, { Scrollbar, SearchBar } from 'components'
-import { FilterSVG } from 'components'
+import { Grid, FilterSVG } from 'components'
 
 const Companies = props => {
   const {
@@ -17,66 +17,68 @@ const Companies = props => {
           <FilterSVG />
         </button>
         <Scrollbar>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
-          <h1>this is Companies page</h1>
+          <Grid>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+            <h1>this is Companies page</h1>
+          </Grid>
         </Scrollbar>
       </SCompanies>
     </Layout>
