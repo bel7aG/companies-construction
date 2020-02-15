@@ -6,8 +6,6 @@ import Landing from './LandingPage'
 import Companies from './CompaniesPage'
 import NotFound from './NotFound'
 
-import 'styles/index.scss'
-
 const AppRouter = props => {
   const {
     location: { pathname },
