@@ -5,6 +5,11 @@ export const FETCH_COMPANIES = gql`
     companies(specialties: $specialties) {
       id
       name
+      logo
+      specialties {
+        id
+        name
+      }
     }
   }
 `

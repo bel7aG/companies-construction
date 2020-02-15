@@ -1,25 +1,54 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useQuery } from '@apollo/react-hooks'
 import styled from 'styled-components'
 
-import Layout, { Scrollbar, SearchBar } from 'components'
-import { Grid, Modal, FilterSVG } from 'components'
-
 import { FETCH_COMPANIES } from 'apollo'
+import Layout, {
+  Scrollbar,
+  SearchBar,
+  Grid,
+  Modal,
+  FilterSVG,
+} from 'components'
+import Company from './Company'
 
 const Companies = props => {
   const {
     location: { pathname },
   } = props
 
-  const { loading, data } = useQuery(FETCH_COMPANIES, {
+  const [companies, setCompanies] = useState([])
+  const [searchValue, setSearchValue] = useState('')
+
+  const { loading, data, error } = useQuery(FETCH_COMPANIES, {
     variables: { specialties: [] },
   })
+
+  useEffect(() => {
+    if (data) {
+      const { companies } = data
+      setCompanies(
+        companies.filter(({ name }) =>
+          name.toLowerCase().includes(searchValue.toLowerCase())
+        )
+      )
+    }
+  }, [data, searchValue])
 
   const [showModal, setShowModal] = useState(false)
 
   const handleModal = () => {
     setShowModal(prevState => !prevState)
+  }
+
+  const handleSearch = ({ target: { value } }) => {
+    setSearchValue(value)
+  }
+
+  let list = []
+
+  if (companies.length) {
+    list = companies.map(company => <Company key={company.id} {...company} />)
   }
 
   return (
@@ -28,7 +57,7 @@ const Companies = props => {
         <h1>okook</h1>
       </Modal>
       <Layout pathname={pathname}>
-        <SearchBar />
+        <SearchBar value={searchValue} handleSearch={handleSearch} />
         <SCompanies className="page">
           <div>
             <button disabled={showModal} onClick={handleModal}>
@@ -36,20 +65,7 @@ const Companies = props => {
             </button>
           </div>
           <Scrollbar>
-            <Grid>
-              <div>
-                <h1>okook</h1>
-              </div>
-              <div>
-                <h1>okook</h1>
-              </div>
-              <div>
-                <h1>okook</h1>
-              </div>
-              <div>
-                <h1>okook</h1>
-              </div>
-            </Grid>
+            <Grid>{list}</Grid>
           </Scrollbar>
         </SCompanies>
       </Layout>
@@ -58,7 +74,6 @@ const Companies = props => {
 }
 
 const SCompanies = styled.div`
-  position: relative;
   > div:first-child {
     z-index: 6;
     position: absolute;
