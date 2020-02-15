@@ -7,6 +7,13 @@ export const SFilterSVG = styled.svg`
   > g {
     > path:last-child {
       stroke: #2553b3;
+      stroke-dasharray: 2.18rem;
+      transition: all 0.93s ease-out;
+    }
+  }
+  &:hover {
+    > g > path:last-child {
+      stroke-dasharray: 5rem;
     }
   }
 `
