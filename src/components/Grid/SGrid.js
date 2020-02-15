@@ -9,9 +9,43 @@ export const SGrid = styled.div`
   > * {
     height: 32rem;
     border: 1px solid rgba(37, 83, 179, 0.18);
-    background-color: #fff;
     border-radius: 4px;
     padding: 2rem 1rem;
+    position: relative;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: hidden;
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+    }
+
+    &::before {
+      bottom: -7.5rem;
+      right: -7.5rem;
+
+      width: 15rem;
+      height: 15rem;
+      transform: rotate(-45deg);
+      background-image: linear-gradient(
+        to right bottom,
+        #2553b3,
+        #1e459d,
+        #163888,
+        #0c2c74,
+        #022060
+      );
+    }
+
+    &::after {
+      bottom: 3.75rem;
+      right: 3.75rem;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      background-color: #fff;
+    }
   }
 
   @media screen and (min-width: 768px) {
