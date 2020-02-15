@@ -1,12 +1,23 @@
-import React from "react"
-import { SHeader } from "./SHeader"
+import React from 'react'
+import { Link } from '@reach/router'
+import PropTypes from 'prop-types'
 
-const Header = () => {
+import { SHeader } from './SHeader'
+
+const Header = ({ children }) => {
   return (
     <SHeader>
-      <h1>this is header</h1>
+      <div>
+        <Link to="/">Casuno</Link>
+      </div>
+
+      <div>{children}</div>
     </SHeader>
   )
+}
+
+Header.propTypes = {
+  children: PropTypes.node,
 }
 
 export default Header

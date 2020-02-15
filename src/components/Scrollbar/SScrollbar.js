@@ -3,7 +3,6 @@ import { Scrollbars } from 'react-custom-scrollbars'
 
 export const SScrollbar = styled(Scrollbars)`
   display: block;
-
   height: 100vh !important;
 
   > div {
@@ -12,11 +11,10 @@ export const SScrollbar = styled(Scrollbars)`
     }
     z-index: 5;
     &:first-child {
-      min-height: 100vh;
-      padding: 8rem 3rem;
+      padding: 12rem 3rem;
 
-      @media (max-width: 1000px) {
-        padding: 1rem 1rem;
+      @media (max-width: 768px) {
+        padding: 9rem 1rem;
       }
     }
     &:last-child {
