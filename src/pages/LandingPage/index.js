@@ -21,7 +21,7 @@ const Landing = () => {
 
 const SLanding = styled.div`
   opacity: 0;
-  animation: opacityIn 0.49s 0.3s ease-out forwards;
+  animation: fadeIn 0.49s 0.3s ease-out forwards;
   > div:nth-child(2) {
     height: 100vh;
     display: flex;
@@ -53,7 +53,7 @@ const SLanding = styled.div`
       width: 100%;
       > div {
         opacity: 0;
-        animation: opacityIn 0.49s 1s ease-out forwards;
+        animation: fadeIn 0.49s 1s ease-out forwards;
         min-width: 26rem;
         max-width: 30vw;
         margin: 0 auto;

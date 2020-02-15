@@ -1,3 +1,4 @@
-import FilterSVG from './FilterSVG/FilterSVG'
+import FilterSVG from './FilterSVG'
+import XSVG from './XSVG'
 
-export { FilterSVG }
+export { FilterSVG, XSVG }
