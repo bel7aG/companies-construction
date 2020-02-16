@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 
 const Company = props => {
-  const { name, logo, city, specialties } = props
+  const { name = '', logo = '', city = '', specialties = [] } = props
 
   const specialtiesList = specialties.map(({ id, name }) => (
     <li key={id}>
