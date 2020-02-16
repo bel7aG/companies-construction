@@ -6,11 +6,7 @@ import Landing from './LandingPage'
 import Companies from './CompaniesPage'
 import NotFound from './NotFound'
 
-const AppRouter = props => {
-  const {
-    location: { pathname },
-  } = props
-
+const AppRouter = () => {
   return (
     <Location>
       {({ location }) => (

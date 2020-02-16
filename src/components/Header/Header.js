@@ -4,12 +4,13 @@ import PropTypes from 'prop-types'
 
 import { SHeader } from './SHeader'
 
-const Header = ({ children }) => {
+const Header = ({ children, ...props }) => {
+  const { title } = props
   return (
     <SHeader>
       <div>
         <div>
-          <Link to="/">Cosuno</Link>
+          <Link to="/">{title}</Link>
         </div>
 
         <div>{children}</div>
@@ -20,6 +21,7 @@ const Header = ({ children }) => {
 
 Header.propTypes = {
   children: PropTypes.node,
+  title: PropTypes.string.isRequired,
 }
 
 export default Header

@@ -1,4 +1,17 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+
+const GridItemAnimation = keyframes`
+  0% {
+    opacity: 0;
+    transform: scale(.89);
+  }
+
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+`
 
 export const SGrid = styled.div`
   display: grid;
@@ -7,14 +20,16 @@ export const SGrid = styled.div`
   grid-gap: 5rem 2rem;
 
   > * {
-    height: 32rem;
+    opacity: 0.91;
+    animation: ${GridItemAnimation} 0.89s ease;
+    min-height: 27rem;
     border: 1px solid rgba(37, 83, 179, 0.18);
     border-radius: 4px;
     padding: 2rem 1rem;
     position: relative;
-    max-width: 100%;
-    max-height: 100%;
     overflow: hidden;
+    transition: opacity 0.2s;
+
     &::before,
     &::after {
       content: '';
@@ -41,10 +56,15 @@ export const SGrid = styled.div`
     &::after {
       bottom: 3.75rem;
       right: 3.75rem;
-      width: 2rem;
-      height: 2rem;
+      width: 3.5rem;
+      height: 3.5rem;
       border-radius: 50%;
       background-color: #fff;
+    }
+
+    &:hover {
+      border: 1px solid rgba(37, 83, 179, 0.28);
+      opacity: 1;
     }
   }
 
@@ -59,12 +79,12 @@ export const SGrid = styled.div`
   }
 
   @media screen and (min-width: 1200px) {
-    grid-template-columns: repeat(auto-fit, minmax(27rem, 36rem));
-    padding: 0;
+    grid-template-columns: repeat(auto-fit, minmax(26rem, 36rem));
+    padding: 0 2rem;
   }
 
   @media screen and (max-width: 1200px) and (min-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(26rem, 36rem));
     padding: 0 6rem 0 2rem;
   }
 `

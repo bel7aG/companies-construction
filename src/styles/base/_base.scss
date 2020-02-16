@@ -123,10 +123,12 @@ li {
   list-style: none;
 }
 
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: 200;
+// snackbar
+
+.MuiPaper-root.MuiSnackbarContent-root {
+  padding: 1.5rem 1rem;
+}
+
+span#client-snackbar {
+  font-size: 1.7rem;
 }

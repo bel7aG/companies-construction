@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useQuery } from '@apollo/react-hooks'
+import { useSnackbar } from 'notistack'
 import styled from 'styled-components'
 
 import { FETCH_COMPANIES } from 'apollo'
@@ -9,7 +10,9 @@ import Layout, {
   Grid,
   Modal,
   FilterSVG,
+  Empty,
 } from 'components'
+import { SpecialtiesForm } from 'forms'
 import Company from './Company'
 
 const Companies = props => {
@@ -17,23 +20,44 @@ const Companies = props => {
     location: { pathname },
   } = props
 
+  const { enqueueSnackbar } = useSnackbar()
+
   const [companies, setCompanies] = useState([])
   const [searchValue, setSearchValue] = useState('')
+  const [specialties, setSpecialties] = useState([])
 
   const { loading, data, error } = useQuery(FETCH_COMPANIES, {
-    variables: { specialties: [] },
+    variables: { specialties: [] }, //in the FUTURE (pagination)
   })
 
   useEffect(() => {
     if (data) {
       const { companies } = data
       setCompanies(
-        companies.filter(({ name }) =>
-          name.toLowerCase().includes(searchValue.toLowerCase())
+        companies.filter(
+          ({ name, specialties: companySpecialties }) =>
+            name.toLowerCase().includes(searchValue.toLowerCase()) &&
+            (specialties.length === 0
+              ? true
+              : companySpecialties.find(({ id: specialtyID }) =>
+                  specialties.includes(specialtyID)
+                ))
         )
       )
     }
-  }, [data, searchValue])
+  }, [data, searchValue, specialties])
+
+  useEffect(() => {
+    if (error) {
+      enqueueSnackbar('Connection problem.', {
+        variant: 'error',
+      })
+    }
+  }, [error])
+
+  const handleSpecialties = specialties => {
+    setSpecialties(specialties)
+  }
 
   const [showModal, setShowModal] = useState(false)
 
@@ -42,19 +66,23 @@ const Companies = props => {
   }
 
   const handleSearch = ({ target: { value } }) => {
-    setSearchValue(value)
+    if (value === '' || value.match(/^[A-Za-z0-9]((?!\s{2}).)*$/)) {
+      setSearchValue(value)
+    }
   }
 
   let list = []
 
   if (companies.length) {
-    list = companies.map(company => <Company key={company.id} {...company} />)
+    list = companies.map(({ id, ...company }) => (
+      <Company key={id} {...company} />
+    ))
   }
 
   return (
     <>
-      <Modal show={showModal} handleModal={handleModal}>
-        <h1>okook</h1>
+      <Modal show={showModal} title="specialties" handleModal={handleModal}>
+        <SpecialtiesForm handleSpecialties={handleSpecialties} />
       </Modal>
       <Layout pathname={pathname}>
         <SearchBar value={searchValue} handleSearch={handleSearch} />
@@ -64,9 +92,14 @@ const Companies = props => {
               <FilterSVG />
             </button>
           </div>
-          <Scrollbar>
-            <Grid>{list}</Grid>
-          </Scrollbar>
+
+          {companies.length ? (
+            <Scrollbar>
+              <Grid>{list}</Grid>
+            </Scrollbar>
+          ) : (
+            <Empty text={loading ? `Loading...` : `Company doesn't exist`} />
+          )}
         </SCompanies>
       </Layout>
     </>
@@ -74,6 +107,7 @@ const Companies = props => {
 }
 
 const SCompanies = styled.div`
+  height: 100vh;
   > div:first-child {
     z-index: 6;
     position: absolute;

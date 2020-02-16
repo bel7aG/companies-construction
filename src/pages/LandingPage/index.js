@@ -64,11 +64,9 @@ const SLanding = styled.div`
         > a {
           display: block;
           padding: 3rem 2rem;
-
           -webkit-text-stroke: 2px #fff;
-          color: rgba(37, 83, 179, 0.19);
+          color: rgba(255, 255, 255, 0.69);
           letter-spacing: 8px;
-
           text-align: center;
           font-size: 5rem;
         }

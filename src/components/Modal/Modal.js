@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useRef } from 'react'
 import PropTypes from 'prop-types'
 
 import { XSVG } from 'components'
@@ -6,7 +6,7 @@ import { useDetectOutsideClick } from 'hooks'
 import { SModal } from './SModal'
 
 const Modal = ({ children, handleModal, ...props }) => {
-  const { show } = props
+  const { show, title } = props
 
   const modalContentRef = useRef()
 
@@ -23,7 +23,7 @@ const Modal = ({ children, handleModal, ...props }) => {
       <div ref={modalContentRef}>
         <div>
           <div>
-            <h1>Filters</h1>
+            <h1>{title || 'Filters'}</h1>
             <button onClick={handleCloseModal}>
               <XSVG />
             </button>
@@ -39,6 +39,7 @@ Modal.propTypes = {
   children: PropTypes.node,
   handleModal: PropTypes.func.isRequired,
   show: PropTypes.bool.isRequired,
+  title: PropTypes.string,
 }
 
 export default Modal

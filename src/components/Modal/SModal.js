@@ -63,7 +63,7 @@ export const SModal = styled.div`
         > h1 {
           line-height: 4rem;
           font-size: 2rem;
-          color: #777788;
+          color: rgba(37, 83, 179, 0.68);
         }
 
         > button {

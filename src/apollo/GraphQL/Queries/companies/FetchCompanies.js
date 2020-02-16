@@ -6,6 +6,7 @@ export const FETCH_COMPANIES = gql`
       id
       name
       logo
+      city
       specialties {
         id
         name
