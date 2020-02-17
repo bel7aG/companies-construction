@@ -49,9 +49,18 @@ const Companies = props => {
 
   useEffect(() => {
     if (error) {
-      enqueueSnackbar('Connection problem.', {
-        variant: 'error',
-      })
+      const errorMessage = error.graphQLErrors[0]
+        ? error.graphQLErrors[0].message.message
+        : null
+      if (errorMessage) {
+        enqueueSnackbar(errorMessage, {
+          variant: 'error',
+        })
+      } else {
+        enqueueSnackbar('Connection Lost', {
+          variant: 'error',
+        })
+      }
     }
   }, [error])
 

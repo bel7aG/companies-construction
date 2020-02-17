@@ -46,7 +46,6 @@ export const SModal = styled.div`
         height: 100%;
         overflow-y: auto;
       }
-      transform: translateY(6%);
 
       padding: 1.5rem 4rem;
 

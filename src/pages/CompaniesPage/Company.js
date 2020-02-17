@@ -5,10 +5,10 @@ import PropTypes from 'prop-types'
 const Company = props => {
   const { name = '', logo = '', city = '', specialties = [] } = props
 
-  const specialtiesList = specialties.map(({ id, name }) => (
-    <li key={id}>
+  const specialtiesList = specialties.map(({ id, name, description }) => (
+    <SpecialtyItem key={id} description={description}>
       <span>{name}</span>
-    </li>
+    </SpecialtyItem>
   ))
 
   return (
@@ -31,10 +31,13 @@ const SCompany = styled.div`
       margin-bottom: 6rem;
 
       > div:first-child {
-        width: 8rem;
-        height: 8rem;
-        border-radius: 50%;
+        width: 5.5rem;
+        height: 5.5rem;
         margin: 0 auto;
+        overflow: hidden;
+        border-radius: 4px;
+        position: relative;
+        background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
         background-image: url(${({ logo }) => logo});
@@ -54,11 +57,10 @@ const SCompany = styled.div`
     }
 
     &:nth-child(2) {
+      position: relative;
       > ul {
-        max-height: 12rem;
-        overflow-y: auto;
-        max-width: calc(100% - 7.5rem);
-
+        overflow-x: auto;
+        max-width: calc(100% - 7rem);
         display: flex;
         &::-webkit-scrollbar-track {
           background-color: rgba(37, 83, 179, 0.18);
@@ -85,10 +87,9 @@ const SCompany = styled.div`
 
         > li {
           margin-bottom: 1rem;
-          padding: 5px 2px;
+          padding: 5px 1rem;
           display: inline-flex;
           margin-right: 2rem;
-          min-width: 7rem;
           border: 1px solid rgba(37, 83, 179, 0.68);
           border-radius: 4px;
           transition: background-color 0.3s;
@@ -97,6 +98,7 @@ const SCompany = styled.div`
             margin: 0 auto;
             margin-top: 3px;
             color: rgba(37, 83, 179, 0.68);
+            white-space: nowrap;
             text-align: center;
             transition: color 0.2s;
           }
@@ -110,6 +112,32 @@ const SCompany = styled.div`
           }
         }
       }
+    }
+  }
+`
+
+const SpecialtyItem = styled.li`
+  &::before {
+    content: ${({ description }) => "'" + description + "'"};
+    position: absolute;
+    top: -5.2rem;
+    left: 1rem;
+    background-color: rgba(37, 83, 179, 0.68);
+    border-radius: 4px;
+    width: 80%;
+    max-height: 0;
+    color: transparent;
+    overflow-y: hidden;
+    opacity: 0;
+    transition: opacity 0.56s linear;
+  }
+
+  &:hover {
+    &::before {
+      opacity: 1;
+      color: #fff;
+      max-height: 4.7rem;
+      padding: 1rem;
     }
   }
 `

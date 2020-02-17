@@ -5,6 +5,8 @@ export const SSpecialtiesForm = styled.form`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 4rem 2rem;
+  max-height: calc(100vh - 11.4rem);
+  overflow-y: auto;
 
   > p {
     margin-top: 2rem;

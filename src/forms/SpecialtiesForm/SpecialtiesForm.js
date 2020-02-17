@@ -13,9 +13,7 @@ const SpecialtiesForm = ({ handleSpecialties }) => {
   const [specialties, setSpecialties] = useState([])
   const [checkedItems, setCheckedItems] = React.useState({})
 
-  const { loading, data, error } = useQuery(FETCH_SPECIALTIES, {
-    variables: { search: '' },
-  })
+  const { loading, data, error } = useQuery(FETCH_SPECIALTIES)
 
   useEffect(() => {
     if (data) {
@@ -38,9 +36,18 @@ const SpecialtiesForm = ({ handleSpecialties }) => {
 
   useEffect(() => {
     if (error) {
-      enqueueSnackbar('Connection problem.', {
-        variant: 'error',
-      })
+      const errorMessage = error.graphQLErrors[0]
+        ? error.graphQLErrors[0].message.message
+        : null
+      if (errorMessage) {
+        enqueueSnackbar(errorMessage, {
+          variant: 'error',
+        })
+      } else {
+        enqueueSnackbar('Connection Lost', {
+          variant: 'error',
+        })
+      }
     }
   }, [error])
 

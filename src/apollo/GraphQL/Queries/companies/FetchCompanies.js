@@ -10,6 +10,7 @@ export const FETCH_COMPANIES = gql`
       specialties {
         id
         name
+        description
       }
     }
   }
