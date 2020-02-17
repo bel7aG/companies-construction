@@ -10,7 +10,7 @@ const Header = ({ children, ...props }) => {
     <SHeader>
       <div>
         <div>
-          <Link to="/">{title}</Link>
+          <Link to="/app">{title}</Link>
         </div>
 
         <div>{children}</div>

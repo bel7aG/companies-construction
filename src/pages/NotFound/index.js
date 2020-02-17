@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 
 const NotFound = ({ navigate }) => {
   useEffect(() => {
-    navigate('/')
+    navigate('/app')
   }, [])
 
   return null

@@ -13,7 +13,7 @@ const AppRouter = () => {
         <TransitionGroup className="transition-group">
           <CSSTransition key={location.key} classNames="fade" timeout={920}>
             <Router location={location} className="router">
-              <Landing path="/" />
+              <Landing path="/app" />
               <Companies path="companies" />
               <NotFound default />
             </Router>
